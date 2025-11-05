@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A warm welcome from Aritra Banerjee. Portfolio is being crafted with care — launching soon!">
+  <title>Welcome — Aritra Banerjee</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    :root {
+      --bg-1: #8ab4f8;
+      --bg-2: #c084fc;
+      --bg-3: #5eead4;
+      --bg-4: #93c5fd;
+      --text: #0b1220;
+      --card-bg: rgba(255, 255, 255, 0.65);
+      --card-border: rgba(226, 232, 240, 0.9);
+      --accent: #2563eb;
+      --accent-2: #06b6d4;
+      --chip-bg: rgba(2, 6, 23, 0.06);
+      --chip-border: rgba(2, 6, 23, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column; /* ensure footer stacks below container */
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 48px 0; /* allow breathing room so the card fits */
+      background: radial-gradient(1200px 800px at 10% 10%, var(--bg-1), transparent 60%),
+                  radial-gradient(1200px 800px at 90% 20%, var(--bg-2), transparent 60%),
+                  radial-gradient(1200px 800px at 20% 90%, var(--bg-3), transparent 60%),
+                  radial-gradient(1200px 800px at 80% 80%, var(--bg-4), transparent 60%),
+                  linear-gradient(135deg, #ffffff, #f5f7ff);
+      background-size: 200% 200%;
+      animation: bg-pan 18s ease-in-out infinite;
+    }
+
+    @keyframes bg-pan {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .decor {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    /* Subtle animated grid for an engineering feel */
+    .grid-overlay {
+      position: absolute;
+      inset: -100px; /* extend beyond edges to avoid clipping during animation */
+      background-image:
+        linear-gradient(rgba(2, 6, 23, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2, 6, 23, 0.06) 1px, transparent 1px);
+      background-size: 24px 24px, 24px 24px;
+      mask-image: radial-gradient(closest-side, rgba(0,0,0,0.6), transparent 80%);
+      animation: grid-drift 16s linear infinite;
+    }
+    @keyframes grid-drift {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-12px) translateX(8px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+
+    .bubble {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      animation: float 10s ease-in-out infinite;
+      filter: blur(0.2px);
+    }
+
+    .bubble:nth-child(2) { width: 12px; height: 12px; animation-duration: 12s; animation-delay: -2s; }
+    .bubble:nth-child(3) { width: 26px; height: 26px; animation-duration: 14s; animation-delay: -4s; }
+    .bubble:nth-child(4) { width: 10px; height: 10px; animation-duration: 9s;  animation-delay: -1s; }
+    .bubble:nth-child(5) { width: 20px; height: 20px; animation-duration: 11s; animation-delay: -3s; }
+    .bubble:nth-child(6) { width: 14px; height: 14px; animation-duration: 13s; animation-delay: -5s; }
+    .bubble:nth-child(7) { width: 30px; height: 30px; animation-duration: 16s; animation-delay: -6s; }
+
+    @keyframes float {
+      0%   { transform: translateY(20px) translateX(0); opacity: 0.0; }
+      10%  { opacity: 0.6; }
+      50%  { transform: translateY(-40vh) translateX(10px); }
+      100% { transform: translateY(-80vh) translateX(-10px); opacity: 0.0; }
+    }
+
+    .container {
+      position: relative;
+      max-width: 760px;
+      padding: 36px 28px 32px;
+      margin: 24px auto;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 35px rgba(31, 41, 55, 0.18);
+      transform: translateY(10px);
+      animation: fade-up 800ms ease 150ms both;
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(24px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0)   scale(1); }
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 1.1;
+      margin: 0 0 12px 0;
+      display: inline-block; /* ensure perfect centering within centered container */
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #0b1220, #334155, var(--accent-2), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .wave {
+      display: inline-block;
+      animation: wave 2.2s infinite ease-in-out;
+      transform-origin: 70% 70%;
+    }
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      15% { transform: rotate(14deg); }
+      30% { transform: rotate(-8deg); }
+      45% { transform: rotate(14deg); }
+      60% { transform: rotate(-4deg); }
+      75% { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0 0 16px 0;
+      color: #334155;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      margin-bottom: 18px;
+      color: #1f2937;
+      opacity: 0.95;
+      font-weight: 700;
+    }
+
+    .low-subtitle {
+      font-size: 12px;
+      margin-bottom: 10px;
+      color: #334155;
+      font-weight: 700;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(14,165,233,0.15), rgba(109,40,217,0.15));
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 14px;
+      margin: 14px 0 18px 0;
+      border: 1px solid rgba(15,23,42,0.06);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+      animation: pulse 2.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.5); }
+      50% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(14,165,233,0.10); }
+    }
+
+    .cta {
+      margin-top: 18px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.24);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      color: white;
+    }
+    .btn-secondary {
+      background: #ffffff;
+      color: #0f172a;
+      border: 1px solid rgba(15,23,42,0.08);
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    /* Icon buttons (GitHub/LinkedIn/Email) */
+    .icon-btn {
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      border: 1px solid rgba(15,23,42,0.08);
+      background: #ffffff;
+      box-shadow: 0 8px 18px rgba(15,23,42,0.10);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+    .icon-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 22px rgba(15,23,42,0.14); }
+    .icon-btn.github { background: linear-gradient(135deg, var(--accent-2), var(--accent)); border: none; }
+    .icon-btn.github svg { filter: drop-shadow(0 1px 0 rgba(0,0,0,0.2)); }
+    .icon-btn svg { width: 22px; height: 22px; }
+    .icon-btn.github svg path { fill: #ffffff; }
+    .icon-btn.linkedin svg path { fill: #0a66c2; }
+    .icon-btn.email svg path { fill: #0b1220; }
+
+    
+
+    .footer-note {
+      font-size: 13px;
+      color: #475569;
+      opacity: 0.9;
+      margin-top: 10px;
+    }
+
+    .footer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 12px 0 20px;
+      color: #475569;
+      font-size: 12px;
+    }
+
+    /* Tech stack chips */
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      font-size: 12px;
+      color: #0b1220;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .chip code { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; }
+
+    /* Recent project card */
+    .project-card {
+      margin-top: 16px;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(15,23,42,0.08);
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.12);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      text-align: left;
+    }
+    .project-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(15,23,42,0.16); }
+    .project-title { font-weight: 700; font-size: 18px; color: #0b1220; margin: 0 0 6px 0; }
+    .project-desc { font-size: 14px; color: #334155; margin: 0; }
+
+    /* Terminal widget */
+    .terminal {
+      text-align: left;
+      margin-top: 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,0.08);
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 6px 20px rgba(31, 41, 55, 0.15);
+      overflow: hidden;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 10px;
+      background: linear-gradient(180deg, rgba(241,245,249,0.9), rgba(226,232,240,0.9));
+      border-bottom: 1px solid rgba(15,23,42,0.08);
+      font-size: 12px;
+      color: #334155;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot.red { background: #ef4444; }
+    .dot.yellow { background: #f59e0b; }
+    .dot.green { background: #22c55e; }
+    .terminal-body {
+      padding: 14px 16px 16px;
+      background: linear-gradient(180deg, rgba(248,250,252,0.5), rgba(255,255,255,0.7));
+      color: #0b1220;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+    .caret { display: inline-block; width: 8px; background: #0b1220; animation: blink 1.2s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Small screens */
+    @media (max-width: 480px) {
+      h1 { font-size: 36px; }
+      p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="decor" aria-hidden="true">
+    <div class="grid-overlay"></div>
+    <span class="bubble" style="left: 10%; bottom: -5%;"></span>
+    <span class="bubble" style="left: 25%; bottom: -10%;"></span>
+    <span class="bubble" style="left: 50%; bottom: -8%;"></span>
+    <span class="bubble" style="left: 70%; bottom: -12%;"></span>
+    <span class="bubble" style="left: 85%; bottom: -6%;"></span>
+    <span class="bubble" style="left: 40%; bottom: -9%;"></span>
+    <span class="bubble" style="left: 60%; bottom: -7%;"></span>
+  </div>
+
+  <div class="container" role="main">
+    <div class="tag">🛠️ Building in progress — Computer Science Engineer at work</div>
+    <h1>Hi, It's Aritra!</h1>
+    <p class="subtitle">CSE Undergrad</p>
+    <div class="cta">
+      <a class="icon-btn github" href="https://github.com/Aritra-221B" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.33 6.85 9.68.5.1.68-.22.68-.48 0-.24-.01-.88-.01-1.72-2.78.61-3.37-1.2-3.37-1.2-.46-1.2-1.12-1.53-1.12-1.53-.92-.64.07-.63.07-.63 1.02.07 1.56 1.06 1.56 1.06.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.05a9.2 9.2 0 0 1 2.5-.35c.85 0 1.7.12 2.5.35 1.9-1.32 2.74-1.05 2.74-1.05.56 1.4.21 2.44.1 2.7.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.07.36.32.67.93.67 1.88 0 1.36-.01 2.45-.01 2.78 0 .27.18.59.69.48A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"></path>
+        </svg>
+      </a>
+      <a class="icon-btn linkedin" href="https://www.linkedin.com/in/aritra-banerjee-work/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4.98 3.5C4.98 4.88 3.85 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.82-2.05 3.74-2.05 4 0 4.74 2.63 4.74 6.05V23h-4v-7.2c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8V23h-4V8z"></path>
+        </svg>
+      </a>
+      <a class="icon-btn email" href="mailto:aritra@example.com?subject=Excited%20for%20your%20portfolio!&body=Hi%20Aritra,%20I%20stopped%20by%20your%20site%20and%20would%20love%20to%20hear%20when%20it%27s%20live.%20" aria-label="Email me">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
+        </svg>
+      </a>
+    </div>
+    <p class="low-subtitle">Contact me ;)</p>
+    <p>My portfolio is being assembled with care — launching soon! 🚀</p>
+    <div class="stack" aria-label="Tech stack">
+      <span class="chip"><code>Python</code></span>
+      <span class="chip"><code>C++</code></span>
+      <span class="chip"><code>JavaScript</code></span>
+      <span class="chip"><code>React</code></span>
+      <span class="chip"><code>Node.js</code></span>
+      <span class="chip"><code>Docker</code></span>
+      <span class="chip"><code>AWS</code></span>
+      <span class="chip"><code>PostgreSQL</code></span>
+    </div>
+
+    
+    <div class="terminal" aria-label="Terminal window">
+      <div class="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span style="margin-left: 8px; opacity: 0.8;">~/portfolio/build/aritra</span>
+      </div>
+      <div class="terminal-body">
+        $ git clone https://github.com/Aritra-221B/portfolio.git
+        $ npm install
+        added 142 packages, and audited 142 packages in 2s
+        $ npm run build
+        ✅ Optimizing assets... done
+        ✅ Generating routes... done
+        🚀 Deploying preview... done
+        waiting for launch...<span class="caret"> </span>
+      </div>
+    </div>
+
+        <a class="project-card" href="https://www.chordscraftinstituteofmusic.com" target="_blank" rel="noopener" aria-label="Recent project link">
+          <p class="project-desc">Care to see what I recently made for a music institute? 😄</p>
+          <div class="project-title">ChordsCraft Institute of Music</div>
+        </a>
+    
+    <div class="footer-note">Launching soon! Thanks for visiting — have a stellar day! ✨</div>
+  </div>
+  <div class="footer">
+    <p>© 2025 Aritra Banerjee. All rights reserved.</p>
+  </div>
+</body>
+</html>
